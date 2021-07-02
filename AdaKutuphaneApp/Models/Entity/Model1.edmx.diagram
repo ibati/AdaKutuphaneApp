@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="9038ce5980814a86b4c91e3186c0cc37" Name="Diagram1">
+        <EntityTypeShape EntityType="AdaKutuphaneModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdaKutuphaneModel.tblCezalar" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdaKutuphaneModel.tblHareketler" Width="1.5" PointX="6" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdaKutuphaneModel.tblKasa" Width="1.5" PointX="7.75" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdaKutuphaneModel.tblKategoriler" Width="1.5" PointX="1.5" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdaKutuphaneModel.tblKitaplar" Width="1.5" PointX="3.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdaKutuphaneModel.tblPersoneller" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdaKutuphaneModel.tblUyeler" Width="1.5" PointX="0.75" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AdaKutuphaneModel.tblYazarlar" Width="1.5" PointX="1.5" PointY="10" IsExpanded="true" />
+        <AssociationConnector Association="AdaKutuphaneModel.FK_tblCezalar_tblHareketler" ManuallyRouted="false" />
+        <AssociationConnector Association="AdaKutuphaneModel.FK_tblCezalar_tblUyeler" ManuallyRouted="false" />
+        <AssociationConnector Association="AdaKutuphaneModel.FK_tblHareketler_Personeller" ManuallyRouted="false" />
+        <AssociationConnector Association="AdaKutuphaneModel.FK_tblHareketler_tblKitaplar" ManuallyRouted="false" />
+        <AssociationConnector Association="AdaKutuphaneModel.FK_tblHareketler_tblUyeler" ManuallyRouted="false" />
+        <AssociationConnector Association="AdaKutuphaneModel.FK_tblKitaplar_tblKategoriler" ManuallyRouted="false" />
+        <AssociationConnector Association="AdaKutuphaneModel.FK_tblKitaplar_tblYazarlar" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
