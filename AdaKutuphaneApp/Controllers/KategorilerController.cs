@@ -16,5 +16,14 @@ namespace AdaKutuphaneApp.Controllers
             var kategoriler = db.tblKategoriler.ToList();
             return View(kategoriler);
         }
+
+        public ActionResult KategoriEkle(tblKategoriler k)
+        {
+            db.tblKategoriler.Add(k);
+            db.SaveChanges();
+            return View();
+        }
     }
+
+
 }
