@@ -17,11 +17,26 @@ namespace AdaKutuphaneApp.Controllers
             return View(kategoriler);
         }
 
+        [HttpGet]
+        public ActionResult KategoriEkle()
+        {
+            return View();
+        }
+
+        [HttpPost]
         public ActionResult KategoriEkle(tblKategoriler k)
         {
             db.tblKategoriler.Add(k);
             db.SaveChanges();
             return View();
+        }
+
+        public  ActionResult KategoriSil(int id)
+        {
+            var kategori = db.tblKategoriler.Find(id);
+            db.tblKategoriler.Remove(kategori);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 
