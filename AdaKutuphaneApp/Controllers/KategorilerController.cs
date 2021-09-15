@@ -38,6 +38,21 @@ namespace AdaKutuphaneApp.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult KategoriGetir(int id)
+        {
+            var kategori = db.tblKategoriler.Find(id);
+            return View("KategoriGetir", kategori);
+        }
+
+        public ActionResult KategoriGuncelle(tblKategoriler k)
+        {
+            var kategori = db.tblKategoriler.Find(k.ID);
+            kategori.AD = k.AD;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
     }
 
 

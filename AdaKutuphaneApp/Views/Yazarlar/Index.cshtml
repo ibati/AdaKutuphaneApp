@@ -1,22 +1,21 @@
 ﻿@using AdaKutuphaneApp.Models.Entity
-@model List<tblKategoriler>
+@model List<tblYazarlar>
 @{
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
-
 
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Kategoriler</h1>
+                <h1>Yazarlar</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
-                    <li class="breadcrumb-item active">Kategoriler</li>
+                    <li class="breadcrumb-item active">Yazarlar</li>
                 </ol>
             </div>
         </div>
@@ -29,35 +28,41 @@
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                   <div class="card-header">
-                    <h3 class="card-title"><button onclick="window.location.href='/Kategoriler/KategoriEkle'" type="button" class="btn btn btn-primary"><i class="fas fa-edit"></i> Yeni Kategori Ekle</button></h3>
-                </div>
+                    <div class="card-header">
+                        <h3 class="card-title"><button onclick="window.location.href='/Yazarlar/YazarEkle'" type="button" class="btn btn btn-primary"><i class="fas fa-edit"></i> Yeni Yazar Ekle</button></h3>
+                    </div>
                     <div class="card-body">
                         <table id="datatable1" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
                                     <th width="5%">ID</th>
-                                    <th width="80%">Kategori Adı</th>
+                                    <th width="20%">Yazar Adı</th>
+                                    <th width="20%">Yazar Soyadı</th>
+                                    <th width="40%">Detay</th>
                                     <th width="15%">İşlemler</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach (var kategori in Model)
+                                @foreach (var yazar in Model)
                                 {
                                     <tr>
-                                        <td>@kategori.ID</td>
-                                        <td>@kategori.AD</td>
+                                        <td>@yazar.ID</td>
+                                        <td>@yazar.AD</td>
+                                        <td>@yazar.SOYAD</td>
+                                        <td>@yazar.DETAY</td>
                                         <td>
-                                            <a href="/Kategoriler/KategoriGetir/@kategori.ID"><button type="button" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i> Güncelle</button></a>
-                                            <a href="/Kategoriler/KategoriSil/@kategori.ID"><button type="button" class="btn btn-sm btn-outline-danger"><i class="fas fa-trash-alt"></i> Sil</button></a>
-</td>
+                                            <a href="/Yazarlar/YazarGetir/@yazar.ID"><button type="button" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i> Güncelle</button></a>
+                                            @Html.ActionLink("Sil", "YazarSil", new { id = yazar.ID }, new { @class = "btn btn-sm btn-outline-danger", onclick = "return confirm('Silmek istediğinize emin misiniz?')" })
+                                        </td>
                                     </tr>
                                 }
                             </tbody>
                             <tfoot>
                                 <tr>
                                     <th>ID</th>
-                                    <th>Kategori Adı</th>
+                                    <th>Yazar Adı</th>
+                                    <th>Yazar Soyadı</th>
+                                    <th>Detay</th>
                                     <th>İşlemler</th>
                                 </tr>
                             </tfoot>
@@ -74,5 +79,3 @@
     <!-- /.container-fluid -->
 </section>
 <!-- /.content -->
-
-   

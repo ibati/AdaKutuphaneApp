@@ -130,6 +130,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KategorilerController.cs" />
+    <Compile Include="Controllers\YazarlarController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -2564,6 +2565,10 @@
     <Content Include="Views\Shared\Layout.cshtml" />
     <Content Include="Views\Kategoriler\Index.cshtml" />
     <Content Include="Views\Kategoriler\KategoriEkle.cshtml" />
+    <Content Include="Views\Kategoriler\KategoriGetir.cshtml" />
+    <Content Include="Views\Yazarlar\Index.cshtml" />
+    <Content Include="Views\Yazarlar\YazarEkle.cshtml" />
+    <Content Include="Views\Yazarlar\YazarGetir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
