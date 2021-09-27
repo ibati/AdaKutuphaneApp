@@ -1,0 +1,93 @@
+﻿@using AdaKutuphaneApp.Models.Entity
+@model List<tblKitaplar>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Kitaplar</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
+                    <li class="breadcrumb-item active">Kitaplar</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><button onclick="window.location.href='/Kitaplar/KitapEkle'" type="button" class="btn btn btn-primary"><i class="fas fa-edit"></i> Yeni Kitap Ekle</button></h3>
+                    </div>
+                    <div class="card-body">
+                        <table id="datatable1" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th width="5%">ID</th>
+                                    <th width="15%">Kitap Adı</th>
+                                    <th width="15%">Kitap Yazarı</th>
+                                    <th width="15%">Kategori</th>
+                                    <th width="10%">Basım Yılı</th>
+                                    <th width="10%">Yayınevi</th>
+                                    <th width="5%">Sayfa</th>
+                                    <th width="10%">Durum</th>
+                                    <th width="15%">İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var kitap in Model)
+                                {
+                                    <tr>
+                                        <td>@kitap.ID</td>
+                                        <td>@kitap.AD</td>
+                                        <td>@kitap.tblYazarlar.AD @kitap.tblYazarlar.SOYAD</td>
+                                        <td>@kitap.tblKategoriler.AD</td>
+                                        <td>@kitap.BASIMYILI</td>
+                                        <td>@kitap.YAYINEVİ</td>
+                                        <td>@kitap.SAYFASAYISI</td>
+                                        <td>@kitap.DURUM</td>
+                                        <td>
+                                            <a href="/Kitaplar/KitapGetir/@kitap.ID"><button type="button" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i> Güncelle</button></a>
+                                            @Html.ActionLink("Sil", "KitapSil", new { id = kitap.ID }, new { @class = "btn btn-sm btn-outline-danger", onclick = "return confirm('Silmek istediğinize emin misiniz?')" })
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th width="5%">ID</th>
+                                    <th width="15%">Kitap Adı</th>
+                                    <th width="15%">Kitap Yazarı</th>
+                                    <th width="15%">Kategori</th>
+                                    <th width="10%">Basım Yılı</th>
+                                    <th width="10%">Yayınevi</th>
+                                    <th width="5%">Sayfa</th>
+                                    <th width="10%">Durum</th>
+                                    <th width="15%">İşlemler</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>
+<!-- /.content -->
