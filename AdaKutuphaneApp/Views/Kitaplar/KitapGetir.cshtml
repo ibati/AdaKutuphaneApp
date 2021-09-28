@@ -1,0 +1,89 @@
+﻿@model AdaKutuphaneApp.Models.Entity.tblKitaplar
+@{
+    ViewBag.Title = "KitapGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("KitapGuncelle", "Kitaplar", FormMethod.Post))
+{
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Kitap Güncelle</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Anasayfas</a></li>
+                        <li class="breadcrumb-item active">Kitap Güncelle</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-6">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Kitap Güncelle</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form method="post">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>Kitap ID</label>
+                                    @Html.TextBoxFor(kitap => kitap.ID, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Kitap Adı</label>
+                                    @Html.TextBoxFor(kitap => kitap.AD, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Kategori</label>
+                                    @Html.DropDownListFor(kitap => kitap.tblKategoriler.ID, (List<SelectListItem>)ViewBag.kategorisec, "--- Kategori seçiniz ---", new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Yazar Adı</label>
+                                    @Html.DropDownListFor(kitap => kitap.tblYazarlar.ID, (List<SelectListItem>)ViewBag.yazarsec, "--- Yazar seçiniz ---", new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Yazar Adı</label>
+                                    @Html.TextBoxFor(kitap => kitap.BASIMYILI, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Yayınevi</label>
+                                    @Html.TextBoxFor(kitap => kitap.YAYINEVİ, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Sayfa Sayısı</label>
+                                    @Html.TextBoxFor(kitap => kitap.SAYFASAYISI, new { @class = "form-control" })
+                                </div>
+
+                            </div>
+                            <!-- /.card-body -->
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Güncelle</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.card -->
+
+
+                </div>
+                <!--/.col (left) -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+}

@@ -41,16 +41,60 @@ namespace AdaKutuphaneApp.Controllers
         }
 
         [HttpPost]
-        public ActionResult KitapEkle(tblKitaplar kitap)
+        public ActionResult KitapEkle(tblKitaplar k)
         {
-            var kategorisec = db.tblKategoriler.Where(kategori => kategori.ID == kitap.tblKategoriler.ID).FirstOrDefault();
-            var yazarsec = db.tblYazarlar.Where(yazar => yazar.ID == kitap.tblYazarlar.ID).FirstOrDefault();
-            kitap.tblKategoriler = kategorisec;
-            kitap.tblYazarlar = yazarsec;
-            db.tblKitaplar.Add(kitap);
+            var kategorisec = db.tblKategoriler.Where(kategori => kategori.ID == k.tblKategoriler.ID).FirstOrDefault();
+            var yazarsec = db.tblYazarlar.Where(yazar => yazar.ID == k.tblYazarlar.ID).FirstOrDefault();
+            k.tblKategoriler = kategorisec;
+            k.tblYazarlar = yazarsec;
+            db.tblKitaplar.Add(k);
             db.SaveChanges();
             return RedirectToAction("Index");
 
+        }
+
+        public ActionResult KitapSil(int id)
+        {
+            var kitap = db.tblKitaplar.Find(id);
+            db.tblKitaplar.Remove(kitap);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult KitapGetir(int id)
+        {
+            var kitap = db.tblKitaplar.Find(id);
+            List<SelectListItem> kategorilist = (from i in db.tblKategoriler.ToList()
+                                                 select new SelectListItem
+                                                 {
+                                                     Text = i.AD,
+                                                     Value = i.ID.ToString()
+                                                 }).ToList();
+            ViewBag.kategorisec = kategorilist;
+
+            List<SelectListItem> yazarlist = (from i in db.tblYazarlar.ToList()
+                                              select new SelectListItem
+                                              {
+                                                  Text = i.AD + ' ' + i.SOYAD,
+                                                  Value = i.ID.ToString()
+                                              }).ToList();
+            ViewBag.yazarsec = yazarlist;
+            return View("KitapGetir", kitap);
+        }
+
+        public ActionResult KitapGuncelle(tblKitaplar k)
+        {
+            var kategorisec = db.tblKategoriler.Where(kategori => kategori.ID == k.tblKategoriler.ID).FirstOrDefault();
+            var yazarsec = db.tblYazarlar.Where(yazar => yazar.ID == k.tblYazarlar.ID).FirstOrDefault();
+            var kitap = db.tblKitaplar.Find(k.ID);
+            kitap.AD = k.AD;
+            kitap.KATEGORI = kategorisec.ID;
+            kitap.YAZAR = yazarsec.ID;
+            kitap.BASIMYILI = k.BASIMYILI;
+            kitap.SAYFASAYISI = k.SAYFASAYISI;
+            kitap.YAYINEVİ = k.YAYINEVİ;
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
     }
 }

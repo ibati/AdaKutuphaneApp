@@ -2572,6 +2572,7 @@
     <Content Include="Views\Yazarlar\YazarGetir.cshtml" />
     <Content Include="Views\Kitaplar\Index.cshtml" />
     <Content Include="Views\Kitaplar\KitapEkle.cshtml" />
+    <Content Include="Views\Kitaplar\KitapGetir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

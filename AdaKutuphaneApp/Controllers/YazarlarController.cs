@@ -29,7 +29,7 @@ namespace AdaKutuphaneApp.Controllers
         {
             db.tblYazarlar.Add(y);
             db.SaveChanges();
-            return View();
+            return RedirectToAction("Index");
         }
 
         public ActionResult YazarSil(int id)
