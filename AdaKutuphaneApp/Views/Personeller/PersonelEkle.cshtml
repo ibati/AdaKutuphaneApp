@@ -1,6 +1,7 @@
-﻿@model AdaKutuphaneApp.Models.Entity.tblYazarlar
+﻿@model AdaKutuphaneApp.Models.Entity.tblPersoneller
+
 @{
-    ViewBag.Title = "YazarEkle";
+    ViewBag.Title = "PersonelEkle";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
@@ -9,12 +10,12 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Yazar Ekle</h1>
+                <h1>Personel Ekle</h1>
             </div>
             <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                     <li class="breadcrumb-item"><a href="#">Anasayfas</a></li>
-                    <li class="breadcrumb-item active">Yazar Ekle</li>
+                    <li class="breadcrumb-item active">Personel Ekle</li>
                 </ol>
             </div>
         </div>
@@ -30,28 +31,23 @@
                 <!-- general form elements -->
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Yazar Ekle</h3>
+                        <h3 class="card-title">Personel Ekle</h3>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
                     <form method="post">
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Yazar Ad</label>
-                                @Html.TextBoxFor(yazar => yazar.AD, new { @class = "form-control" })
+                                <label>Personel Ad</label>
+                                @Html.TextBoxFor(personel => personel.AD, new { @class = "form-control" })
+                                @Html.ValidationMessageFor(personel=>personel.AD,"",new { @span = "error invalid-feedback" })
                             </div>
                             <div class="form-group">
-                                <label>Yazar Soyad</label>
-                                @Html.TextBoxFor(yazar => yazar.SOYAD, new { @class = "form-control" })
+                                <label>Personel Soyad</label>
+                                @Html.TextBoxFor(personel => personel.SOYAD, new { @class = "form-control" })
                             </div>
-                            <div class="form-group">
-                                <label>Detay</label>
-                                @Html.TextAreaFor(yazar => yazar.DETAY, new { @class = "form-control" })
-                            </div>
-
                         </div>
                         <!-- /.card-body -->
-
                         <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Kaydet</button>
                         </div>

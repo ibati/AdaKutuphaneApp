@@ -11,7 +11,8 @@ namespace AdaKutuphaneApp.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tblPersoneller
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,6 +22,8 @@ namespace AdaKutuphaneApp.Models.Entity
         }
     
         public int ID { get; set; }
+
+        [Required(ErrorMessage ="Personel adý boþ geçilemez")]
         public string AD { get; set; }
         public string SOYAD { get; set; }
     
