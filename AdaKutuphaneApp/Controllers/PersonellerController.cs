@@ -34,5 +34,29 @@ namespace AdaKutuphaneApp.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult PersonelSil(int id)
+        {
+            var personel = db.tblPersoneller.Find(id);
+            db.tblPersoneller.Remove(personel);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+
+        public ActionResult PersonelGetir(int id)
+        {
+            var personel = db.tblPersoneller.Find(id);
+            return View("PersonelGetir", personel);
+        }
+
+        public ActionResult PersonelGuncelle(tblPersoneller p)
+        {
+            var personel = db.tblPersoneller.Find(p.ID);
+            personel.AD = p.AD;
+            personel.SOYAD = p.SOYAD;
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
     }
 }

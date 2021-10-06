@@ -2576,6 +2576,7 @@
     <Content Include="Views\Kitaplar\KitapGetir.cshtml" />
     <Content Include="Views\Personeller\Index.cshtml" />
     <Content Include="Views\Personeller\PersonelEkle.cshtml" />
+    <Content Include="Views\Personeller\PersonelGetir.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
