@@ -1,0 +1,89 @@
+﻿@model AdaKutuphaneApp.Models.Entity.tblUyeler
+
+@{
+    ViewBag.Title = "UyeGetir";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+@using (Html.BeginForm("UyeGuncelle", "Uyeler", FormMethod.Post))
+{
+    <!-- Content Header (Page header) -->
+    <section class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1>Üye Güncelle</h1>
+                </div>
+                <div class="col-sm-6">
+                    <ol class="breadcrumb float-sm-right">
+                        <li class="breadcrumb-item"><a href="#">Anasayfas</a></li>
+                        <li class="breadcrumb-item active">Üye Güncelle</li>
+                    </ol>
+                </div>
+            </div>
+        </div><!-- /.container-fluid -->
+    </section>
+
+    <!-- Main content -->
+    <section class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <!-- left column -->
+                <div class="col-md-6">
+                    <!-- general form elements -->
+                    <div class="card card-primary">
+                        <div class="card-header">
+                            <h3 class="card-title">Üye Güncelle</h3>
+                        </div>
+                        <!-- /.card-header -->
+                        <!-- form start -->
+                        <form method="post">
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label>Üye ID</label>
+                                    @Html.TextBoxFor(uye => uye.ID, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Üye Adı</label>
+                                    @Html.TextBoxFor(uye => uye.AD, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Üye Soyadı</label>
+                                    @Html.TextBoxFor(uye => uye.SOYAD, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Mail Adresi</label>
+                                    @Html.TextBoxFor(uye => uye.MAIL, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Kullanıcı Adı</label>
+                                    @Html.TextBoxFor(uye => uye.KULLANICIADI, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Parola</label>
+                                    @Html.TextBoxFor(uye => uye.PAROLA, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group">
+                                    <label>Üye Telefon</label>
+                                    @Html.TextBoxFor(uye => uye.TELEFON, new { @class = "form-control" })
+                                </div>
+                            </div>
+                            <!-- /.card-body -->
+
+                            <div class="card-footer">
+                                <button type="submit" class="btn btn-primary">Güncelle</button>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- /.card -->
+
+
+                </div>
+                <!--/.col (left) -->
+            </div>
+            <!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </section>
+    <!-- /.content -->
+}

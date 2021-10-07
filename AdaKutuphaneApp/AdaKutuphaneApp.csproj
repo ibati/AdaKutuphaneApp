@@ -131,11 +131,14 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\KategorilerController.cs" />
     <Compile Include="Controllers\KitaplarController.cs" />
+    <Compile Include="Controllers\OduncController.cs" />
     <Compile Include="Controllers\PersonellerController.cs" />
+    <Compile Include="Controllers\UyelerController.cs" />
     <Compile Include="Controllers\YazarlarController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\HtmlHelpers.cs" />
     <Compile Include="Models\Entity\Model1.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -2577,9 +2580,14 @@
     <Content Include="Views\Personeller\Index.cshtml" />
     <Content Include="Views\Personeller\PersonelEkle.cshtml" />
     <Content Include="Views\Personeller\PersonelGetir.cshtml" />
+    <Content Include="Views\Uyeler\Index.cshtml" />
+    <Content Include="Views\Uyeler\UyeEkle.cshtml" />
+    <Content Include="Views\Uyeler\UyeGetir.cshtml" />
+    <Content Include="Views\Odunc\OduncVer.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\HtmlHelpers\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
