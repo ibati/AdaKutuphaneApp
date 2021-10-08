@@ -1,0 +1,89 @@
+﻿@using AdaKutuphaneApp.Models.Entity
+@model List<tblHareketler>
+
+
+@{
+    ViewBag.Title = "Ödünç Verilen Kitaplar";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Ödünç Verilen Kitaplar</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
+                    <li class="breadcrumb-item active">Ödünç Verilen Kitaplar</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><button onclick="window.location.href='/Odunc/OduncVer'" type="button" class="btn btn btn-primary"><i class="fas fa-edit"></i> Yeni Ödünç Kitap Ver</button></h3>
+                    </div>
+                    <div class="card-body">
+                        <table id="datatable1" class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th width="5%">ID</th>
+                                    <th width="30%">Kitap Adı</th>
+                                    <th width="20%">Üye</th>
+                                    <th width="15%">Personel</th>
+                                    <th width="10%">Alış Tarihi</th>
+                                    <th width="10%">İade Tarihi</th>
+                                    <th width="10%">İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var hareket in Model)
+                                {
+                                    <tr>
+                                        <td>@hareket.ID</td>
+                                        <td>@hareket.tblKitaplar.AD</td>
+                                        <td>@hareket.tblUyeler.AD @hareket.tblUyeler.SOYAD</td>
+                                        <td>@hareket.tblPersoneller.AD @hareket.tblPersoneller.SOYAD</td>
+                                        <td>@Convert.ToDateTime(hareket.ALISTARIH).ToString("dd/MM/yyyy")</td>
+                                        <td>@Convert.ToDateTime(hareket.IADETARIH).ToString("dd/MM/yyyy")</td>
+                                        <td>
+                                            <a href="/OduncVer/OduncIade/@hareket.ID"><button type="button" class="btn btn-sm btn-warning"><i class="fas fa-arrow-circle-left"></i> İade Al</button></a>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th width="5%">ID</th>
+                                    <th width="30%">Kitap Adı</th>
+                                    <th width="20%">Üye</th>
+                                    <th width="15%">Personel</th>
+                                    <th width="10%">Alış Tarihi</th>
+                                    <th width="10%">İade Tarihi</th>
+                                    <th width="10%">İşlemler</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>
+<!-- /.content -->

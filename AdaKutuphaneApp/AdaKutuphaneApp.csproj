@@ -2584,6 +2584,7 @@
     <Content Include="Views\Uyeler\UyeEkle.cshtml" />
     <Content Include="Views\Uyeler\UyeGetir.cshtml" />
     <Content Include="Views\Odunc\OduncVer.cshtml" />
+    <Content Include="Views\Odunc\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

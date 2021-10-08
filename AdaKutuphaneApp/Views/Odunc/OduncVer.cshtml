@@ -1,6 +1,6 @@
 ﻿@model AdaKutuphaneApp.Models.Entity.tblHareketler
 @{
-    ViewBag.Title = "OduncVer";
+    ViewBag.Title = "Ödünç Verme";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
@@ -48,6 +48,14 @@
                             <div class="form-group">
                                 <label>Personel</label>
                                 @Html.TextBoxFor(odunc => odunc.PERSONEL, new { @class = "form-control" })
+                            </div>
+                            <div class="form-group">
+                                <label>Kitap Alış Tarihi</label>
+                                <input type="datetime" class="form-control" name="ALISTARIH" value="@DateTime.Now.ToShortDateString()"/>
+                            </div>
+                            <div class="form-group">
+                                <label>Kitap İade Tarihi</label>
+                                <input type="datetime" class="form-control" name="IADETARIH" value="@DateTime.Now.AddDays(7).ToShortDateString()"/>
                             </div>
                         </div>
                         <!-- /.card-body -->
