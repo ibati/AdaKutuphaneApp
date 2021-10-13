@@ -4,7 +4,7 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="9038ce5980814a86b4c91e3186c0cc37" Name="Diagram1">
+      <Diagram DiagramId="05f0e395d0d34945905d7ae8d0f3d9c6" Name="Diagram1">
         <EntityTypeShape EntityType="AdaKutuphaneModel.sysdiagrams" Width="1.5" PointX="5.75" PointY="7.625" IsExpanded="true" />
         <EntityTypeShape EntityType="AdaKutuphaneModel.tblCezalar" Width="1.5" PointX="3" PointY="3.875" IsExpanded="true" />
         <EntityTypeShape EntityType="AdaKutuphaneModel.tblHareketler" Width="1.5" PointX="6" PointY="3.625" IsExpanded="true" />

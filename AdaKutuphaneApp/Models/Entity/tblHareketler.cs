@@ -21,9 +21,9 @@ namespace AdaKutuphaneApp.Models.Entity
         }
     
         public int ID { get; set; }
-        public Nullable<int> KITAP { get; set; }
-        public Nullable<int> UYE { get; set; }
-        public Nullable<int> PERSONEL { get; set; }
+        public int KITAP { get; set; }
+        public int UYE { get; set; }
+        public int PERSONEL { get; set; }
         public Nullable<System.DateTime> ALISTARIH { get; set; }
         public Nullable<System.DateTime> IADETARIH { get; set; }
     
