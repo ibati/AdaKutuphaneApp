@@ -4,7 +4,6 @@
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
-
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <div class="container-fluid">
@@ -38,29 +37,31 @@
                     <form method="post">
                         <div class="card-body">
                             <div class="form-group">
-                                <label>Üye ID</label>
-                                @Html.TextBoxFor(odunc => odunc.UYE, new { @class = "form-control" })
+                                <label>Üye Adı</label>
+                                @Html.DropDownListFor(odunc => odunc.tblUyeler.ID, (List<SelectListItem>)ViewBag.uyesec, "--- Üye seçiniz ---", new { @class = "form-control select2", required = "Üye seçiniz" })
                             </div>
                             <div class="form-group">
                                 <label>Kitap Adı</label>
-                                @Html.TextBoxFor(odunc => odunc.KITAP, new { @class = "form-control" })
+                                @Html.DropDownListFor(odunc => odunc.tblKitaplar.ID, (List<SelectListItem>)ViewBag.kitapsec, "--- Kitap seçiniz ---", new { @class = "form-control select2", required = "Kitap seçiniz" })
                             </div>
                             <div class="form-group">
-                                <label>Personel</label>
-                                @Html.TextBoxFor(odunc => odunc.PERSONEL, new { @class = "form-control" })
+                                <label>Personel Adı</label>
+                                @Html.DropDownListFor(odunc => odunc.tblPersoneller.ID, (List<SelectListItem>)ViewBag.personelsec, "--- Personel seçiniz ---", new { @class = "form-control select2", required = "Personel seçiniz" })
                             </div>
                             <div class="form-group">
                                 <label>Kitap Alış Tarihi</label>
-                                <input type="datetime" class="form-control" name="ALISTARIH" value="@DateTime.Now.ToShortDateString()"/>
+                                <input type="datetime" class="form-control" name="ALISTARIH" value="@DateTime.Now.ToShortDateString()" />
                             </div>
                             <div class="form-group">
                                 <label>Kitap İade Tarihi</label>
-                                <input type="datetime" class="form-control" name="IADETARIH" value="@DateTime.Now.AddDays(7).ToShortDateString()"/>
+                                <input type="datetime" class="form-control" name="IADETARIH" value="@DateTime.Now.AddDays(7).ToShortDateString()" />
                             </div>
+
                         </div>
                         <!-- /.card-body -->
+
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Ödünç Ver</button>
+                            <button type="submit" class="btn btn-primary">Kitap Ekle</button>
                         </div>
                     </form>
                 </div>

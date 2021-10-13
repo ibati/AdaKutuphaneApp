@@ -4,14 +4,14 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="AdaKutuphaneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Alias="Self" Namespace="AdaKutuphaneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
           </Key>
-          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
-          <Property Name="principal_id" Type="int" Nullable="false" />
-          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Nullable="false" MaxLength="128" Type="nvarchar" />
+          <Property Name="principal_id" Nullable="false" Type="int" />
+          <Property Name="diagram_id" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
           <Property Name="version" Type="int" />
           <Property Name="definition" Type="varbinary(max)" />
         </EntityType>
@@ -19,18 +19,18 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
           <Property Name="UYE" Type="int" />
           <Property Name="HAREKET" Type="int" />
           <Property Name="BASLANGIC" Type="smalldatetime" />
           <Property Name="BITIS" Type="smalldatetime" />
-          <Property Name="CEZA" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="CEZA" Precision="18" Scale="2" Type="decimal" />
         </EntityType>
         <EntityType Name="tblHareketler">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
           <Property Name="KITAP" Type="int" />
           <Property Name="UYE" Type="int" />
           <Property Name="PERSONEL" Type="int" />
@@ -41,63 +41,63 @@
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AY" Type="varchar" MaxLength="20" />
-          <Property Name="TUTAR" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="AY" MaxLength="20" Type="varchar" />
+          <Property Name="TUTAR" Precision="18" Scale="2" Type="decimal" />
         </EntityType>
         <EntityType Name="tblKategoriler">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AD" Type="varchar" MaxLength="50" />
+          <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="tinyint" />
+          <Property Name="AD" MaxLength="50" Type="varchar" />
         </EntityType>
         <EntityType Name="tblKitaplar">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AD" Type="varchar" MaxLength="50" />
+          <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="AD" MaxLength="50" Type="varchar" />
           <Property Name="KATEGORI" Type="tinyint" />
           <Property Name="YAZAR" Type="int" />
-          <Property Name="BASIMYILI" Type="char" MaxLength="4" />
-          <Property Name="YAYINEVİ" Type="varchar" MaxLength="50" />
-          <Property Name="SAYFASAYISI" Type="varchar" MaxLength="5" />
+          <Property Name="BASIMYILI" MaxLength="4" Type="char" />
+          <Property Name="YAYINEVİ" MaxLength="50" Type="varchar" />
+          <Property Name="SAYFASAYISI" MaxLength="5" Type="varchar" />
           <Property Name="DURUM" Type="bit" />
         </EntityType>
         <EntityType Name="tblPersoneller">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AD" Type="varchar" MaxLength="50" />
-          <Property Name="SOYAD" Type="varchar" MaxLength="50" />
+          <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="AD" MaxLength="50" Type="varchar" />
+          <Property Name="SOYAD" MaxLength="50" Type="varchar" />
         </EntityType>
         <EntityType Name="tblUyeler">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AD" Type="varchar" MaxLength="50" />
-          <Property Name="SOYAD" Type="varchar" MaxLength="50" />
-          <Property Name="MAIL" Type="varchar" MaxLength="50" />
-          <Property Name="KULLANICIADI" Type="varchar" MaxLength="50" />
-          <Property Name="PAROLA" Type="varchar" MaxLength="50" />
-          <Property Name="FOTOGRAF" Type="varchar" MaxLength="250" />
-          <Property Name="TELEFON" Type="varchar" MaxLength="50" />
+          <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="AD" MaxLength="50" Type="varchar" />
+          <Property Name="SOYAD" MaxLength="50" Type="varchar" />
+          <Property Name="MAIL" MaxLength="50" Type="varchar" />
+          <Property Name="KULLANICIADI" MaxLength="50" Type="varchar" />
+          <Property Name="PAROLA" MaxLength="50" Type="varchar" />
+          <Property Name="FOTOGRAF" MaxLength="250" Type="varchar" />
+          <Property Name="TELEFON" MaxLength="50" Type="varchar" />
         </EntityType>
         <EntityType Name="tblYazarlar">
           <Key>
             <PropertyRef Name="ID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="AD" Type="varchar" MaxLength="50" />
-          <Property Name="SOYAD" Type="varchar" MaxLength="50" />
-          <Property Name="DETAY" Type="varchar" MaxLength="1000" />
+          <Property Name="ID" Nullable="false" StoreGeneratedPattern="Identity" Type="int" />
+          <Property Name="AD" MaxLength="50" Type="varchar" />
+          <Property Name="SOYAD" MaxLength="50" Type="varchar" />
+          <Property Name="DETAY" MaxLength="1000" Type="varchar" />
         </EntityType>
         <Association Name="FK_tblCezalar_tblHareketler">
-          <End Role="tblHareketler" Type="Self.tblHareketler" Multiplicity="0..1" />
-          <End Role="tblCezalar" Type="Self.tblCezalar" Multiplicity="*" />
+          <End Type="Self.tblHareketler" Multiplicity="0..1" Role="tblHareketler" />
+          <End Type="Self.tblCezalar" Multiplicity="*" Role="tblCezalar" />
           <ReferentialConstraint>
             <Principal Role="tblHareketler">
               <PropertyRef Name="ID" />
@@ -108,8 +108,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_tblCezalar_tblUyeler">
-          <End Role="tblUyeler" Type="Self.tblUyeler" Multiplicity="0..1" />
-          <End Role="tblCezalar" Type="Self.tblCezalar" Multiplicity="*" />
+          <End Type="Self.tblUyeler" Multiplicity="0..1" Role="tblUyeler" />
+          <End Type="Self.tblCezalar" Multiplicity="*" Role="tblCezalar" />
           <ReferentialConstraint>
             <Principal Role="tblUyeler">
               <PropertyRef Name="ID" />
@@ -120,8 +120,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_tblHareketler_Personeller">
-          <End Role="tblPersoneller" Type="Self.tblPersoneller" Multiplicity="0..1" />
-          <End Role="tblHareketler" Type="Self.tblHareketler" Multiplicity="*" />
+          <End Type="Self.tblPersoneller" Multiplicity="0..1" Role="tblPersoneller" />
+          <End Type="Self.tblHareketler" Multiplicity="*" Role="tblHareketler" />
           <ReferentialConstraint>
             <Principal Role="tblPersoneller">
               <PropertyRef Name="ID" />
@@ -132,8 +132,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_tblHareketler_tblKitaplar">
-          <End Role="tblKitaplar" Type="Self.tblKitaplar" Multiplicity="0..1" />
-          <End Role="tblHareketler" Type="Self.tblHareketler" Multiplicity="*" />
+          <End Type="Self.tblKitaplar" Multiplicity="0..1" Role="tblKitaplar" />
+          <End Type="Self.tblHareketler" Multiplicity="*" Role="tblHareketler" />
           <ReferentialConstraint>
             <Principal Role="tblKitaplar">
               <PropertyRef Name="ID" />
@@ -144,8 +144,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_tblHareketler_tblUyeler">
-          <End Role="tblUyeler" Type="Self.tblUyeler" Multiplicity="0..1" />
-          <End Role="tblHareketler" Type="Self.tblHareketler" Multiplicity="*" />
+          <End Type="Self.tblUyeler" Multiplicity="0..1" Role="tblUyeler" />
+          <End Type="Self.tblHareketler" Multiplicity="*" Role="tblHareketler" />
           <ReferentialConstraint>
             <Principal Role="tblUyeler">
               <PropertyRef Name="ID" />
@@ -156,8 +156,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_tblKitaplar_tblKategoriler">
-          <End Role="tblKategoriler" Type="Self.tblKategoriler" Multiplicity="0..1" />
-          <End Role="tblKitaplar" Type="Self.tblKitaplar" Multiplicity="*" />
+          <End Type="Self.tblKategoriler" Multiplicity="0..1" Role="tblKategoriler" />
+          <End Type="Self.tblKitaplar" Multiplicity="*" Role="tblKitaplar" />
           <ReferentialConstraint>
             <Principal Role="tblKategoriler">
               <PropertyRef Name="ID" />
@@ -168,8 +168,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_tblKitaplar_tblYazarlar">
-          <End Role="tblYazarlar" Type="Self.tblYazarlar" Multiplicity="0..1" />
-          <End Role="tblKitaplar" Type="Self.tblKitaplar" Multiplicity="*" />
+          <End Type="Self.tblYazarlar" Multiplicity="0..1" Role="tblYazarlar" />
+          <End Type="Self.tblKitaplar" Multiplicity="*" Role="tblKitaplar" />
           <ReferentialConstraint>
             <Principal Role="tblYazarlar">
               <PropertyRef Name="ID" />
@@ -190,32 +190,32 @@
           <EntitySet Name="tblUyeler" EntityType="Self.tblUyeler" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblYazarlar" EntityType="Self.tblYazarlar" Schema="dbo" store:Type="Tables" />
           <AssociationSet Name="FK_tblCezalar_tblHareketler" Association="Self.FK_tblCezalar_tblHareketler">
-            <End Role="tblHareketler" EntitySet="tblHareketler" />
-            <End Role="tblCezalar" EntitySet="tblCezalar" />
+            <End EntitySet="tblHareketler" Role="tblHareketler" />
+            <End EntitySet="tblCezalar" Role="tblCezalar" />
           </AssociationSet>
           <AssociationSet Name="FK_tblCezalar_tblUyeler" Association="Self.FK_tblCezalar_tblUyeler">
-            <End Role="tblUyeler" EntitySet="tblUyeler" />
-            <End Role="tblCezalar" EntitySet="tblCezalar" />
+            <End EntitySet="tblUyeler" Role="tblUyeler" />
+            <End EntitySet="tblCezalar" Role="tblCezalar" />
           </AssociationSet>
           <AssociationSet Name="FK_tblHareketler_Personeller" Association="Self.FK_tblHareketler_Personeller">
-            <End Role="tblPersoneller" EntitySet="tblPersoneller" />
-            <End Role="tblHareketler" EntitySet="tblHareketler" />
+            <End EntitySet="tblPersoneller" Role="tblPersoneller" />
+            <End EntitySet="tblHareketler" Role="tblHareketler" />
           </AssociationSet>
           <AssociationSet Name="FK_tblHareketler_tblKitaplar" Association="Self.FK_tblHareketler_tblKitaplar">
-            <End Role="tblKitaplar" EntitySet="tblKitaplar" />
-            <End Role="tblHareketler" EntitySet="tblHareketler" />
+            <End EntitySet="tblKitaplar" Role="tblKitaplar" />
+            <End EntitySet="tblHareketler" Role="tblHareketler" />
           </AssociationSet>
           <AssociationSet Name="FK_tblHareketler_tblUyeler" Association="Self.FK_tblHareketler_tblUyeler">
-            <End Role="tblUyeler" EntitySet="tblUyeler" />
-            <End Role="tblHareketler" EntitySet="tblHareketler" />
+            <End EntitySet="tblUyeler" Role="tblUyeler" />
+            <End EntitySet="tblHareketler" Role="tblHareketler" />
           </AssociationSet>
           <AssociationSet Name="FK_tblKitaplar_tblKategoriler" Association="Self.FK_tblKitaplar_tblKategoriler">
-            <End Role="tblKategoriler" EntitySet="tblKategoriler" />
-            <End Role="tblKitaplar" EntitySet="tblKitaplar" />
+            <End EntitySet="tblKategoriler" Role="tblKategoriler" />
+            <End EntitySet="tblKitaplar" Role="tblKitaplar" />
           </AssociationSet>
           <AssociationSet Name="FK_tblKitaplar_tblYazarlar" Association="Self.FK_tblKitaplar_tblYazarlar">
-            <End Role="tblYazarlar" EntitySet="tblYazarlar" />
-            <End Role="tblKitaplar" EntitySet="tblKitaplar" />
+            <End EntitySet="tblYazarlar" Role="tblYazarlar" />
+            <End EntitySet="tblKitaplar" Role="tblKitaplar" />
           </AssociationSet>
         </EntityContainer>
       </Schema>

@@ -14,7 +14,6 @@ namespace AdaKutuphaneApp.Controllers
         public ActionResult Index()
         {
             var kitaplar = db.tblKitaplar.ToList();
-
             return View(kitaplar);
         }
 
@@ -36,6 +35,7 @@ namespace AdaKutuphaneApp.Controllers
                                                     Value = i.ID.ToString()
                                                 }).ToList();
             ViewBag.yazarsec = yazarlist;
+
             return View();
 
         }

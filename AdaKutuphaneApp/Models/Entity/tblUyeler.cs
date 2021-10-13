@@ -11,8 +11,7 @@ namespace AdaKutuphaneApp.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class tblUyeler
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,12 +23,9 @@ namespace AdaKutuphaneApp.Models.Entity
     
         public int ID { get; set; }
         public string AD { get; set; }
-        [Required(ErrorMessage="Adý boþ býrakamazsýnýz")]
-        [StringLength(20,ErrorMessage="En fazla 20 karakter girebilirsiniz")]
         public string SOYAD { get; set; }
         public string MAIL { get; set; }
         public string KULLANICIADI { get; set; }
-        [StringLength(10, ErrorMessage = "En fazla 10 karakter girebilirsiniz")]
         public string PAROLA { get; set; }
         public string FOTOGRAF { get; set; }
         public string TELEFON { get; set; }
