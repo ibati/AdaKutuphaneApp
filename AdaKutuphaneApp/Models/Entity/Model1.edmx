@@ -251,7 +251,7 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="KITAP" Type="Int32" />
+          <Property Name="KITAP" Type="Int32" Nullable="false" />
           <Property Name="UYE" Type="Int32" />
           <Property Name="PERSONEL" Type="Int32" />
           <Property Name="ALISTARIH" Type="DateTime" Precision="0" />
@@ -455,7 +455,7 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="AdaKutuphaneModelStoreContainer" CdmEntityContainer="AdaKutuphaneEntities1">
+        <EntityContainerMapping CdmEntityContainer="AdaKutuphaneEntities1" StorageEntityContainer="AdaKutuphaneModelStoreContainer">
           <EntitySetMapping Name="sysdiagrams">
             <EntityTypeMapping TypeName="AdaKutuphaneModel.sysdiagrams">
               <MappingFragment StoreEntitySet="sysdiagrams">
