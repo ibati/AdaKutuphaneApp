@@ -93,6 +93,7 @@ namespace AdaKutuphaneApp.Controllers
             kitap.BASIMYILI = k.BASIMYILI;
             kitap.SAYFASAYISI = k.SAYFASAYISI;
             kitap.YAYINEVİ = k.YAYINEVİ;
+            kitap.DURUM = k.DURUM;
             db.SaveChanges();
             return RedirectToAction("Index");
         }

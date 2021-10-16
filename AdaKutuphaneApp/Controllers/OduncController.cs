@@ -61,5 +61,35 @@ namespace AdaKutuphaneApp.Controllers
             return RedirectToAction("Index");
         }
 
+        public ActionResult OduncIade(int ID)
+        {
+            List<SelectListItem> uyelist = (from i in db.tblUyeler.ToList()
+                                            select new SelectListItem
+                                            {
+                                                Text = i.AD,
+                                                Value = i.ID.ToString()
+                                            }).ToList();
+            ViewBag.uyesec = uyelist;
+
+            List<SelectListItem> kitaplist = (from i in db.tblKitaplar.ToList()
+                                              select new SelectListItem
+                                              {
+                                                  Text = i.AD,
+                                                  Value = i.ID.ToString()
+                                              }).ToList();
+            ViewBag.kitapsec = kitaplist;
+
+            List<SelectListItem> personellist = (from i in db.tblPersoneller.ToList()
+                                                 select new SelectListItem
+                                                 {
+                                                     Text = i.AD,
+                                                     Value = i.ID.ToString()
+                                                 }).ToList();
+            ViewBag.personelsec = personellist;
+
+            var odunciade = db.tblHareketler.Find(ID);
+            return View("OduncIade", odunciade);
+        }
+
     }
 }
