@@ -1,7 +1,6 @@
 ﻿@model AdaKutuphaneApp.Models.Entity.tblHareketler
-
 @{
-    ViewBag.Title = "OnduncIade";
+    ViewBag.Title = "Ödünç Geri Alma";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
@@ -13,12 +12,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1>Ödünç İade</h1>
+                    <h1>Kitap Güncelle</h1>
                 </div>
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Anasayfas</a></li>
-                        <li class="breadcrumb-item active">Ödünç İade</li>
+                        <li class="breadcrumb-item active">Kitap Güncelle</li>
                     </ol>
                 </div>
             </div>
@@ -34,7 +33,7 @@
                     <!-- general form elements -->
                     <div class="card card-primary">
                         <div class="card-header">
-                            <h3 class="card-title">Ödünç İade</h3>
+                            <h3 class="card-title">Kitap Güncelle</h3>
                         </div>
                         <!-- /.card-header -->
                         <!-- form start -->
@@ -42,33 +41,29 @@
                             <div class="card-body">
                                 <div class="form-group">
                                     <label>Üye Adı</label>
-                                    @Html.DropDownListFor(odunc => odunc.tblUyeler.ID, (List<SelectListItem>)ViewBag.uyesec, "--- Üye seçiniz ---", new { @class = "form-control select2", required = "Üye seçiniz" })
+                                    @Html.TextBoxFor(odunc => odunc.tblUyeler.AD, new { @class = "form-control" })
                                 </div>
                                 <div class="form-group">
                                     <label>Kitap Adı</label>
-                                    @Html.DropDownListFor(odunc => odunc.tblKitaplar.ID, (List<SelectListItem>)ViewBag.kitapsec, "--- Kitap seçiniz ---", new { @class = "form-control select2", required = "Kitap seçiniz" })
+                                    @Html.TextBoxFor(odunc => odunc.tblKitaplar.AD, new { @class = "form-control" })
                                 </div>
                                 <div class="form-group">
-                                    <label>Personel Adı</label>
-                                    @Html.DropDownListFor(odunc => odunc.tblPersoneller.ID, (List<SelectListItem>)ViewBag.personelsec, "--- Personel seçiniz ---", new { @class = "form-control select2", required = "Personel seçiniz" })
+                                    <label>Kategori</label>
+                                    @Html.TextBoxFor(odunc => odunc.tblPersoneller.AD, new { @class = "form-control" })
                                 </div>
                                 <div class="form-group">
                                     <label>Kitap Alış Tarihi</label>
-                                    <input type="datetime" class="form-control" name="ALISTARIH" value="@DateTime.Now.ToShortDateString()" />
+                                    @Html.TextBoxFor(odunc => odunc.ALISTARIH, "{0: dd.MM.yyyy}", new { @class = "form-control" })
                                 </div>
                                 <div class="form-group">
                                     <label>Kitap İade Tarihi</label>
-                                    <input type="datetime" class="form-control" name="IADETARIH" value="@DateTime.Now.AddDays(7).ToShortDateString()" />
-                                </div>
-                                <div class="form-group">
-                                    <label>Üyenin Getirdiği Tarih</label>
-                                    <input type="datetime" class="form-control" value="@DateTime.Now.ToShortDateString()" />
+                                    @Html.TextBoxFor(odunc => odunc.IADETARIH, "{0: dd.MM.yyyy}", new { @class = "form-control" })
                                 </div>
                             </div>
                             <!-- /.card-body -->
 
                             <div class="card-footer">
-                                <button type="submit" class="btn btn-primary">Ödünç Kitabı Geri Al</button>
+                                <button type="submit" class="btn btn-primary">Güncelle</button>
                             </div>
                         </form>
                     </div>

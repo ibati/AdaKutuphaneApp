@@ -91,5 +91,17 @@ namespace AdaKutuphaneApp.Controllers
             return View("OduncIade", odunciade);
         }
 
+        public ActionResult OduncGuncelle (tblHareketler h)
+        {
+            var hrk = db.tblHareketler.Find(h.ID);
+            hrk.ISLEMDURUM = true;
+
+            db.SaveChanges();
+            return RedirectToAction("Index");
+
+        }
+
+
+
     }
 }
