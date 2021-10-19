@@ -7,9 +7,9 @@ using AdaKutuphaneApp.Models.Entity;
 
 namespace AdaKutuphaneApp.Controllers
 {
-    public class OduncController : Controller
+    public class HareketlerController : Controller
     {
-        // GET: Odunc
+        // GET: Hareketler
         AdaKutuphaneEntities1 db = new AdaKutuphaneEntities1();
         public ActionResult Index()
         {
@@ -21,11 +21,11 @@ namespace AdaKutuphaneApp.Controllers
         public ActionResult OduncVer()
         {
             List<SelectListItem> uyelist = (from i in db.tblUyeler.ToList()
-                                              select new SelectListItem
-                                              {
-                                                  Text = i.AD,
-                                                  Value = i.ID.ToString()
-                                              }).ToList();
+                                            select new SelectListItem
+                                            {
+                                                Text = i.AD,
+                                                Value = i.ID.ToString()
+                                            }).ToList();
             ViewBag.uyesec = uyelist;
 
             List<SelectListItem> kitaplist = (from i in db.tblKitaplar.ToList()
@@ -61,47 +61,21 @@ namespace AdaKutuphaneApp.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult OduncIade(int ID)
+        public ActionResult IadeAl(int id)
         {
-            List<SelectListItem> uyelist = (from i in db.tblUyeler.ToList()
-                                            select new SelectListItem
-                                            {
-                                                Text = i.AD,
-                                                Value = i.ID.ToString()
-                                            }).ToList();
-            ViewBag.uyesec = uyelist;
-
-            List<SelectListItem> kitaplist = (from i in db.tblKitaplar.ToList()
-                                              select new SelectListItem
-                                              {
-                                                  Text = i.AD,
-                                                  Value = i.ID.ToString()
-                                              }).ToList();
-            ViewBag.kitapsec = kitaplist;
-
-            List<SelectListItem> personellist = (from i in db.tblPersoneller.ToList()
-                                                 select new SelectListItem
-                                                 {
-                                                     Text = i.AD,
-                                                     Value = i.ID.ToString()
-                                                 }).ToList();
-            ViewBag.personelsec = personellist;
-
-            var odunciade = db.tblHareketler.Find(ID);
-            return View("OduncIade", odunciade);
+            var iade = db.tblHareketler.Find(id);
+            return View("IadeAl", iade);
         }
 
-        public ActionResult OduncGuncelle (tblHareketler h)
+        public ActionResult IadeTamamla(tblHareketler t)
         {
-            var hrk = db.tblHareketler.Find(h.ID);
-            hrk.ISLEMDURUM = true;
-
+            var iade = db.tblHareketler.Find(t.ID);
+            iade.ISLEMDURUM = true;
             db.SaveChanges();
             return RedirectToAction("Index");
-
         }
 
-
-
     }
+
+
 }

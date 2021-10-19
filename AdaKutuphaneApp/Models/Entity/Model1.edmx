@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="AdaKutuphaneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="AdaKutuphaneModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="sysdiagrams">
           <Key>
             <PropertyRef Name="diagram_id" />
@@ -31,9 +31,9 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="KITAP" Type="int" Nullable="false" />
-          <Property Name="UYE" Type="int" Nullable="false" />
-          <Property Name="PERSONEL" Type="int" Nullable="false" />
+          <Property Name="KITAP" Type="int" />
+          <Property Name="UYE" Type="int" />
+          <Property Name="PERSONEL" Type="int" />
           <Property Name="ALISTARIH" Type="smalldatetime" />
           <Property Name="IADETARIH" Type="smalldatetime" />
           <Property Name="UYEGETIRTARIH" Type="smalldatetime" />
@@ -122,7 +122,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_tblHareketler_Personeller">
-          <End Role="tblPersoneller" Type="Self.tblPersoneller" Multiplicity="1" />
+          <End Role="tblPersoneller" Type="Self.tblPersoneller" Multiplicity="0..1" />
           <End Role="tblHareketler" Type="Self.tblHareketler" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblPersoneller">
@@ -134,7 +134,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_tblHareketler_tblKitaplar">
-          <End Role="tblKitaplar" Type="Self.tblKitaplar" Multiplicity="1" />
+          <End Role="tblKitaplar" Type="Self.tblKitaplar" Multiplicity="0..1" />
           <End Role="tblHareketler" Type="Self.tblHareketler" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblKitaplar">
@@ -146,7 +146,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_tblHareketler_tblUyeler">
-          <End Role="tblUyeler" Type="Self.tblUyeler" Multiplicity="1" />
+          <End Role="tblUyeler" Type="Self.tblUyeler" Multiplicity="0..1" />
           <End Role="tblHareketler" Type="Self.tblHareketler" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblUyeler">
@@ -220,7 +220,8 @@
             <End Role="tblKitaplar" EntitySet="tblKitaplar" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="AdaKutuphaneModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -252,17 +253,17 @@
             <PropertyRef Name="ID" />
           </Key>
           <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="KITAP" Type="Int32" Nullable="false" />
-          <Property Name="UYE" Type="Int32" Nullable="false" />
-          <Property Name="PERSONEL" Type="Int32" Nullable="false" />
+          <Property Name="KITAP" Type="Int32" />
+          <Property Name="UYE" Type="Int32" />
+          <Property Name="PERSONEL" Type="Int32" />
           <Property Name="ALISTARIH" Type="DateTime" Precision="0" />
           <Property Name="IADETARIH" Type="DateTime" Precision="0" />
+          <Property Name="UYEGETIRTARIH" Type="DateTime" Precision="0" />
+          <Property Name="ISLEMDURUM" Type="Boolean" />
           <NavigationProperty Name="tblCezalar" Relationship="Self.FK_tblCezalar_tblHareketler" FromRole="tblHareketler" ToRole="tblCezalar" />
           <NavigationProperty Name="tblPersoneller" Relationship="Self.FK_tblHareketler_Personeller" FromRole="tblHareketler" ToRole="tblPersoneller" />
           <NavigationProperty Name="tblKitaplar" Relationship="Self.FK_tblHareketler_tblKitaplar" FromRole="tblHareketler" ToRole="tblKitaplar" />
           <NavigationProperty Name="tblUyeler" Relationship="Self.FK_tblHareketler_tblUyeler" FromRole="tblHareketler" ToRole="tblUyeler" />
-          <Property Name="ISLEMDURUM" Type="Boolean" />
-          <Property Name="UYEGETIRTARIH" Type="DateTime" Precision="0" />
         </EntityType>
         <EntityType Name="tblKasa">
           <Key>
@@ -355,7 +356,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_tblHareketler_Personeller">
-          <End Role="tblPersoneller" Type="Self.tblPersoneller" Multiplicity="1" />
+          <End Role="tblPersoneller" Type="Self.tblPersoneller" Multiplicity="0..1" />
           <End Role="tblHareketler" Type="Self.tblHareketler" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblPersoneller">
@@ -367,7 +368,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_tblHareketler_tblKitaplar">
-          <End Role="tblKitaplar" Type="Self.tblKitaplar" Multiplicity="1" />
+          <End Role="tblKitaplar" Type="Self.tblKitaplar" Multiplicity="0..1" />
           <End Role="tblHareketler" Type="Self.tblHareketler" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblKitaplar">
@@ -379,7 +380,7 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="FK_tblHareketler_tblUyeler">
-          <End Role="tblUyeler" Type="Self.tblUyeler" Multiplicity="1" />
+          <End Role="tblUyeler" Type="Self.tblUyeler" Multiplicity="0..1" />
           <End Role="tblHareketler" Type="Self.tblHareketler" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="tblUyeler">
@@ -485,14 +486,14 @@
           <EntitySetMapping Name="tblHareketler">
             <EntityTypeMapping TypeName="AdaKutuphaneModel.tblHareketler">
               <MappingFragment StoreEntitySet="tblHareketler">
-                <ScalarProperty Name="UYEGETIRTARIH" ColumnName="UYEGETIRTARIH" />
-                <ScalarProperty Name="ISLEMDURUM" ColumnName="ISLEMDURUM" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="KITAP" ColumnName="KITAP" />
                 <ScalarProperty Name="UYE" ColumnName="UYE" />
                 <ScalarProperty Name="PERSONEL" ColumnName="PERSONEL" />
                 <ScalarProperty Name="ALISTARIH" ColumnName="ALISTARIH" />
                 <ScalarProperty Name="IADETARIH" ColumnName="IADETARIH" />
+                <ScalarProperty Name="UYEGETIRTARIH" ColumnName="UYEGETIRTARIH" />
+                <ScalarProperty Name="ISLEMDURUM" ColumnName="ISLEMDURUM" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

@@ -21,13 +21,13 @@ namespace AdaKutuphaneApp.Models.Entity
         }
     
         public int ID { get; set; }
-        public int KITAP { get; set; }
-        public int UYE { get; set; }
-        public int PERSONEL { get; set; }
+        public Nullable<int> KITAP { get; set; }
+        public Nullable<int> UYE { get; set; }
+        public Nullable<int> PERSONEL { get; set; }
         public Nullable<System.DateTime> ALISTARIH { get; set; }
         public Nullable<System.DateTime> IADETARIH { get; set; }
-        public Nullable<bool> ISLEMDURUM { get; set; }
         public Nullable<System.DateTime> UYEGETIRTARIH { get; set; }
+        public Nullable<bool> ISLEMDURUM { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<tblCezalar> tblCezalar { get; set; }
