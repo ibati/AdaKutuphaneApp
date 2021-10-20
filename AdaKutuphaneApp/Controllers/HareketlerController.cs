@@ -13,7 +13,7 @@ namespace AdaKutuphaneApp.Controllers
         AdaKutuphaneEntities1 db = new AdaKutuphaneEntities1();
         public ActionResult Index()
         {
-            var hareketler = db.tblHareketler.ToList();
+            var hareketler = db.tblHareketler.Where(x=> x.ISLEMDURUM == false).ToList();
             return View(hareketler);
         }
 
@@ -61,15 +61,16 @@ namespace AdaKutuphaneApp.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult IadeAl(int id)
+        public ActionResult IadeAl(int ID)
         {
-            var iade = db.tblHareketler.Find(id);
+            var iade = db.tblHareketler.Find(ID);
             return View("IadeAl", iade);
         }
 
-        public ActionResult IadeTamamla(tblHareketler t)
+        public ActionResult IadeTamamla(tblHareketler h)
         {
-            var iade = db.tblHareketler.Find(t.ID);
+            var iade = db.tblHareketler.Find(h.ID);
+            iade.UYEGETIRTARIH = h.UYEGETIRTARIH;
             iade.ISLEMDURUM = true;
             db.SaveChanges();
             return RedirectToAction("Index");
