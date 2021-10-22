@@ -11,7 +11,8 @@ namespace AdaKutuphaneApp.Models.Entity
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.ComponentModel.DataAnnotations;
+
     public partial class tblYazarlar
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -21,7 +22,11 @@ namespace AdaKutuphaneApp.Models.Entity
         }
     
         public int ID { get; set; }
+
+        [Required(ErrorMessage = "Lütfen yazar adý giriniz")]
         public string AD { get; set; }
+
+        [Required(ErrorMessage = "Lütfen yazar soyadý giriniz")]
         public string SOYAD { get; set; }
         public string DETAY { get; set; }
     

@@ -27,9 +27,14 @@ namespace AdaKutuphaneApp.Controllers
         [HttpPost]
         public ActionResult YazarEkle(tblYazarlar y)
         {
+            if (!ModelState.IsValid)
+            {
+                return View("YazarEKle");
+            }
             db.tblYazarlar.Add(y);
             db.SaveChanges();
             return RedirectToAction("Index");
+
         }
 
         public ActionResult YazarSil(int id)

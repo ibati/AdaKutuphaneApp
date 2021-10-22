@@ -34,15 +34,17 @@
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
-                    <form method="post">
+                    <form id="validateform" method="post">
                         <div class="card-body">
                             <div class="form-group">
                                 <label>Yazar Ad</label>
-                                @Html.TextBoxFor(yazar => yazar.AD, new { @class = "form-control" })
+                                @Html.TextBoxFor(yazar => yazar.AD, new { @class = "form-control", @placeholder = "Yazar Adı" })
+                                @Html.ValidationMessageFor(yazar => yazar.AD, "", new { @class = "text-xs text-danger" })
                             </div>
                             <div class="form-group">
                                 <label>Yazar Soyad</label>
-                                @Html.TextBoxFor(yazar => yazar.SOYAD, new { @class = "form-control" })
+                                @Html.TextBoxFor(yazar => yazar.SOYAD, new { @class = "form-control", @placeholder = "Yazar Soyadı" })
+                                @Html.ValidationMessageFor(yazar => yazar.SOYAD, "", new { @class = "text-xs text-danger" })
                             </div>
                             <div class="form-group">
                                 <label>Detay</label>
@@ -67,3 +69,47 @@
     </div><!-- /.container-fluid -->
 </section>
 <!-- /.content -->
+
+@section scripts {
+    <script>
+        $(function () {
+            $('#validateform').validate({
+                rules: {
+                    AD: {
+                        required: true,
+                        minlength: 2 ,
+                    },
+
+                    SOYAD: {
+                        required: true,
+                        minlength: 2,
+                    },
+
+                },
+                messages: {
+                    AD: {
+                        required: "Lütfen ad giriniz",
+                        minlength: "Ad alanı en az 2 hane olmalıdır",
+                    },
+
+                    SOYAD: {
+                        required: "Lütfen soyad giriniz",
+                        minlength: "Soyad alanı en az 2 hane olmalıdır",
+
+                    }
+                },
+                errorElement: 'span',
+                errorPlacement: function (error, element) {
+                    error.addClass('invalid-feedback');
+                    element.closest('.form-group').append(error);
+                },
+                highlight: function (element, errorClass, validClass) {
+                    $(element).addClass('is-invalid');
+                },
+                unhighlight: function (element, errorClass, validClass) {
+                    $(element).removeClass('is-invalid');
+                }
+            });
+        });
+    </script>
+}
