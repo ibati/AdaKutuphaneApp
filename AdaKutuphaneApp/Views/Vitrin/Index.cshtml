@@ -1,4 +1,5 @@
-﻿
+﻿@using AdaKutuphaneApp.Models.Entity;
+@model List<tblKitaplar>
 @{
     Layout = null;
 }
@@ -38,13 +39,13 @@
             <div class="collapse navbar-collapse" id="navbarResponsive">
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Portfolio</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#portfolio">Kitaplar</a>
                     </li>
                     <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">About</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#about">Hakkımızda</a>
                     </li>
                     <li class="nav-item mx-0 mx-lg-1">
-                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">Contact</a>
+                        <a class="nav-link py-3 px-0 px-lg-3 rounded js-scroll-trigger" href="#contact">İletişim</a>
                     </li>
                 </ul>
             </div>
@@ -55,23 +56,8 @@
     <header class="masthead bg-primary text-white text-center">
         <div class="container d-flex align-items-center flex-column">
 
-            <!-- Masthead Avatar Image -->
-            <img class="masthead-avatar mb-5" src="img/avataaars.svg" alt="">
-
-            <!-- Masthead Heading -->
-            <h1 class="masthead-heading text-uppercase mb-0">Start Bootstrap</h1>
-
-            <!-- Icon Divider -->
-            <div class="divider-custom divider-light">
-                <div class="divider-custom-line"></div>
-                <div class="divider-custom-icon">
-                    <i class="fas fa-star"></i>
-                </div>
-                <div class="divider-custom-line"></div>
-            </div>
-
             <!-- Masthead Subheading -->
-            <p class="masthead-subheading font-weight-light mb-0">Graphic Artist - Web Designer - Illustrator</p>
+            <p class="masthead-subheading font-weight-light mb-0">Örnek proje</p>
 
         </div>
     </header>
@@ -94,79 +80,20 @@
 
             <!-- Portfolio Grid Items -->
             <div class="row">
-
+                @foreach (var kitap in Model)
+                {
                 <!-- Portfolio Item 1 -->
-                <div class="col-md-6 col-lg-4">
+                <div class="col-md-6 col-lg-2">
                     <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal1">
                         <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                             <div class="portfolio-item-caption-content text-center text-white">
                                 <i class="fas fa-plus fa-3x"></i>
                             </div>
                         </div>
-                        <img class="img-fluid" src="~/VitrinTheme/img/portfolio/cabin.png" alt="">
+                        <img class="img-fluid" src="@kitap.KITAPRESIM" alt="">
                     </div>
                 </div>
-
-                <!-- Portfolio Item 2 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal2">
-                        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white">
-                                <i class="fas fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="~/VitrinTheme/img/portfolio/cake.png" alt="">
-                    </div>
-                </div>
-
-                <!-- Portfolio Item 3 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal3">
-                        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white">
-                                <i class="fas fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="~/VitrinTheme/img/portfolio/circus.png" alt="">
-                    </div>
-                </div>
-
-                <!-- Portfolio Item 4 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal4">
-                        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white">
-                                <i class="fas fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="~/VitrinTheme/img/portfolio/game.png" alt="">
-                    </div>
-                </div>
-
-                <!-- Portfolio Item 5 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal5">
-                        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white">
-                                <i class="fas fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="~/VitrinTheme/img/portfolio/safe.png" alt="">
-                    </div>
-                </div>
-
-                <!-- Portfolio Item 6 -->
-                <div class="col-md-6 col-lg-4">
-                    <div class="portfolio-item mx-auto" data-toggle="modal" data-target="#portfolioModal6">
-                        <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                            <div class="portfolio-item-caption-content text-center text-white">
-                                <i class="fas fa-plus fa-3x"></i>
-                            </div>
-                        </div>
-                        <img class="img-fluid" src="~/VitrinTheme/img/portfolio/submarine.png" alt="">
-                    </div>
-                </div>
-
+                }
             </div>
             <!-- /.row -->
 

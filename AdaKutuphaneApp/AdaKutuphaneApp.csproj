@@ -131,6 +131,7 @@
     <Compile Include="Controllers\HareketlerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\IslemlerController.cs" />
+    <Compile Include="Controllers\IstatistiklerController.cs" />
     <Compile Include="Controllers\KategorilerController.cs" />
     <Compile Include="Controllers\KitaplarController.cs" />
     <Compile Include="Controllers\PersonellerController.cs" />
@@ -2590,6 +2591,7 @@
     <Content Include="Views\Hareketler\IadeAl.cshtml" />
     <Content Include="Views\Islemler\Index.cshtml" />
     <Content Include="Views\Vitrin\Index.cshtml" />
+    <Content Include="Views\Istatistikler\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

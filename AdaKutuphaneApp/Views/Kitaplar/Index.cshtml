@@ -59,7 +59,7 @@
                                         <td>@kitap.SAYFASAYISI</td>
                                         <td>@kitap.DURUM</td>
                                         <td>
-                                            <a href="/Kitaplar/KitapGetir/@kitap.ID"><button type="button" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i> Güncelle</button></a>
+                                            <a href="/Kitaplar/KitapGetir/@kitap.ID" type="button" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i> Güncelle</a>
                                             @Html.ActionLink("Sil", "KitapSil", new { id = kitap.ID }, new { @class = "btn btn-sm btn-outline-danger", onclick = "return confirm('Silmek istediğinize emin misiniz?')" })
                                         </td>
                                     </tr>
