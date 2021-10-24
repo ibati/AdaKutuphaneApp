@@ -77,12 +77,14 @@
                 rules: {
                     AD: {
                         required: true,
-                        minlength: 2 ,
+                        minlength: 2,
+                        maxlength: 20,
                     },
 
                     SOYAD: {
                         required: true,
                         minlength: 2,
+                        maxlength:20,
                     },
 
                 },
@@ -90,11 +92,13 @@
                     AD: {
                         required: "Lütfen ad giriniz",
                         minlength: "Ad alanı en az 2 hane olmalıdır",
+                        maxlength: "Ad en fazla 20 karakter olmalıdır",
                     },
 
                     SOYAD: {
                         required: "Lütfen soyad giriniz",
                         minlength: "Soyad alanı en az 2 hane olmalıdır",
+                        maxlength: "Ad en fazla 20 karakter olmalıdır",
 
                     }
                 },

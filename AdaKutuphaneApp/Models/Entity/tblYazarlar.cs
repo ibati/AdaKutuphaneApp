@@ -24,6 +24,7 @@ namespace AdaKutuphaneApp.Models.Entity
         public int ID { get; set; }
 
         [Required(ErrorMessage = "Lütfen yazar adý giriniz")]
+        [StringLength(20,ErrorMessage ="Ad en fazla 20 karakter olabilir")]
         public string AD { get; set; }
 
         [Required(ErrorMessage = "Lütfen yazar soyadý giriniz")]
