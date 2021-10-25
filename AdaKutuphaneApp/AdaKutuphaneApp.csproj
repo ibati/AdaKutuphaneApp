@@ -2592,9 +2592,11 @@
     <Content Include="Views\Islemler\Index.cshtml" />
     <Content Include="Views\Vitrin\Index.cshtml" />
     <Content Include="Views\Istatistikler\Index.cshtml" />
+    <Content Include="Views\Istatistikler\Galeri.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Uploads\" />
     <Folder Include="Views\HtmlHelpers\" />
   </ItemGroup>
   <ItemGroup>

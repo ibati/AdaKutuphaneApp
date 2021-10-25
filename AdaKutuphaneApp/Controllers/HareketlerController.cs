@@ -61,9 +61,14 @@ namespace AdaKutuphaneApp.Controllers
             return RedirectToAction("Index");
         }
 
-        public ActionResult IadeAl(int ID)
+        public ActionResult IadeAl(tblHareketler h)
         {
-            var iade = db.tblHareketler.Find(ID);
+            var iade = db.tblHareketler.Find(h.ID);
+            DateTime iadetarih = DateTime.Parse(iade.IADETARIH.ToString());
+            DateTime getirtarih = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            TimeSpan ggs = getirtarih - iadetarih;
+            ViewBag.ggs = ggs.TotalDays;
+            
             return View("IadeAl", iade);
         }
 
