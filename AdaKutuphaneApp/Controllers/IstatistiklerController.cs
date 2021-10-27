@@ -4,14 +4,25 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AdaKutuphaneApp.Models.Entity;
 
 namespace AdaKutuphaneApp.Controllers
 {
     public class IstatistiklerController : Controller
     {
         // GET: Istatistikler
+        AdaKutuphaneEntities1 db = new AdaKutuphaneEntities1();
         public ActionResult Index()
         {
+            var uyesayisi = db.tblUyeler.Count();
+            var kitapsayisi = db.tblKitaplar.Count();
+            var oduncsayisi = db.tblKitaplar.Where(x => x.DURUM == false).Count();
+            var kasa = db.tblCezalar.Sum(x => x.CEZA);
+            ViewBag.uyesayisi = uyesayisi;
+            ViewBag.kitapsayisi = kitapsayisi;
+            ViewBag.oduncsayisi = oduncsayisi;
+            ViewBag.kasa = kasa;
+
             return View();
         }
 
@@ -30,5 +41,7 @@ namespace AdaKutuphaneApp.Controllers
             }
             return RedirectToAction("Galeri");
         }
+
+
     }
 }

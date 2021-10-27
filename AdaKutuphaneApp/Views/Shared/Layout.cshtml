@@ -314,6 +314,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     </div>
     <!-- ./wrapper -->
     <!-- REQUIRED SCRIPTS -->
+    @RenderSection("scripts", false)
     <!-- jQuery -->
     <script src="~/AdminTheme/plugins/jquery/jquery.min.js"></script>
     <!-- jQuery UI 1.11.4 -->
@@ -355,9 +356,6 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Toastr -->
     <script src="~/AdminTheme/plugins/toastr/toastr.min.js"></script>
 
-
-
-    @RenderSection("scripts", false)
     <script>
         $(function () {
             $('#datatable1').DataTable({
@@ -371,18 +369,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             });
         });
     </script>
-    <script>
-        $(function () {
-            //Initialize Select2 Elements
-            $('.select2').select2()
-
-            //Initialize Select2 Elements
-            $('.select2bs4').select2({
-                theme: 'bootstrap4'
-            })
-        })
-
-    </script>
+    @RenderSection("chartscripts", false)
 </body>
 </html>
 

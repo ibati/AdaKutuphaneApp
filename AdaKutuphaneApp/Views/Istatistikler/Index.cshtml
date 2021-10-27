@@ -29,7 +29,7 @@
                 <!-- small box -->
                 <div class="small-box bg-info">
                     <div class="inner">
-                        <h3>150</h3>
+                        <h3>@ViewBag.kasa</h3>
 
                         <p>Kasa</p>
                     </div>
@@ -44,7 +44,7 @@
                 <!-- small box -->
                 <div class="small-box bg-success">
                     <div class="inner">
-                        <h3>53</h3>
+                        <h3>@ViewBag.uyesayisi</h3>
 
                         <p>Toplam Üye</p>
                     </div>
@@ -59,7 +59,7 @@
                 <!-- small box -->
                 <div class="small-box bg-warning">
                     <div class="inner">
-                        <h3>44</h3>
+                        <h3>@ViewBag.kitapsayisi</h3>
 
                         <p>Kitap Sayısı</p>
                     </div>
@@ -74,7 +74,7 @@
                 <!-- small box -->
                 <div class="small-box bg-danger">
                     <div class="inner">
-                        <h3>65</h3>
+                        <h3>@ViewBag.oduncsayisi</h3>
 
                         <p>Ödünç Verilen Kitap Sayısı</p>
                     </div>
@@ -122,7 +122,7 @@
 </section>
 <!-- /.content -->
 
-@section scripts
+@section chartscripts
     {
     <script>
         $(function () {
@@ -139,7 +139,7 @@
             var areaChartCanvas = $('#areaChart').get(0).getContext('2d')
 
             var areaChartData = {
-                labels: ['Haziran', 'Temmuz', 'Ağustos', 'Eylül', 'Ekim', 'Kasım', 'Aralık'],
+                labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
                 datasets: [
                     {
                         label: 'Digital Goods',
@@ -206,8 +206,7 @@
             var lineChart = new Chart(lineChartCanvas, {
                 type: 'line',
                 data: lineChartData,
-                options: lineChartOptions,
-
+                options: lineChartOptions
             })
 
             //-------------

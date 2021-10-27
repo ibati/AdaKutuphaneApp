@@ -28,7 +28,7 @@ namespace AdaKutuphaneApp.Controllers
                                             }).ToList();
             ViewBag.uyesec = uyelist;
 
-            List<SelectListItem> kitaplist = (from i in db.tblKitaplar.ToList()
+            List<SelectListItem> kitaplist = (from i in db.tblKitaplar.Where(x => x.DURUM == true)
                                               select new SelectListItem
                                               {
                                                   Text = i.AD,
@@ -50,6 +50,7 @@ namespace AdaKutuphaneApp.Controllers
         [HttpPost]
         public ActionResult OduncVer(tblHareketler h)
         {
+
             var uyesec = db.tblUyeler.Where(uye => uye.ID == h.tblUyeler.ID).FirstOrDefault();
             var kitapsec = db.tblKitaplar.Where(kitap => kitap.ID == h.tblKitaplar.ID).FirstOrDefault();
             var personelsec = db.tblPersoneller.Where(uye => uye.ID == h.tblPersoneller.ID).FirstOrDefault();
@@ -63,6 +64,30 @@ namespace AdaKutuphaneApp.Controllers
 
         public ActionResult IadeAl(tblHareketler h)
         {
+            List<SelectListItem> uyelist = (from i in db.tblUyeler.ToList()
+                                            select new SelectListItem
+                                            {
+                                                Text = i.AD,
+                                                Value = i.ID.ToString()
+                                            }).ToList();
+            ViewBag.uyesec = uyelist;
+
+            List<SelectListItem> kitaplist = (from i in db.tblKitaplar.ToList()
+                                              select new SelectListItem
+                                              {
+                                                  Text = i.AD,
+                                                  Value = i.ID.ToString()
+                                              }).ToList();
+            ViewBag.kitapsec = kitaplist;
+
+            List<SelectListItem> personellist = (from i in db.tblPersoneller.ToList()
+                                                 select new SelectListItem
+                                                 {
+                                                     Text = i.AD,
+                                                     Value = i.ID.ToString()
+                                                 }).ToList();
+            ViewBag.personelsec = personellist;
+
             var iade = db.tblHareketler.Find(h.ID);
             DateTime iadetarih = DateTime.Parse(iade.IADETARIH.ToString());
             DateTime getirtarih = Convert.ToDateTime(DateTime.Now.ToShortDateString());
@@ -80,6 +105,8 @@ namespace AdaKutuphaneApp.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+
 
     }
 
