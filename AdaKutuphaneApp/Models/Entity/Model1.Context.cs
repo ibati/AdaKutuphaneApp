@@ -12,6 +12,8 @@ namespace AdaKutuphaneApp.Models.Entity
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.Core.Objects;
+    using System.Linq;
     
     public partial class AdaKutuphaneEntities1 : DbContext
     {
@@ -34,5 +36,10 @@ namespace AdaKutuphaneApp.Models.Entity
         public virtual DbSet<tblPersoneller> tblPersoneller { get; set; }
         public virtual DbSet<tblUyeler> tblUyeler { get; set; }
         public virtual DbSet<tblYazarlar> tblYazarlar { get; set; }
+    
+        public virtual ObjectResult<string> EnFazlaKitapYazar()
+        {
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction<string>("EnFazlaKitapYazar");
+        }
     }
 }

@@ -182,6 +182,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Function Name="EnFazlaKitapYazar" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <EntityContainer Name="AdaKutuphaneModelStoreContainer">
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="tblCezalar" EntityType="Self.tblCezalar" Schema="dbo" store:Type="Tables" />
@@ -454,6 +455,7 @@
             <End Role="tblYazarlar" EntitySet="tblYazarlar" />
             <End Role="tblKitaplar" EntitySet="tblKitaplar" />
           </AssociationSet>
+          <FunctionImport Name="EnFazlaKitapYazar" ReturnType="Collection(String)" />
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -563,6 +565,7 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="EnFazlaKitapYazar" FunctionName="AdaKutuphaneModel.Store.EnFazlaKitapYazar" />
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

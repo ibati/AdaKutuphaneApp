@@ -23,6 +23,15 @@ namespace AdaKutuphaneApp.Controllers
             ViewBag.oduncsayisi = oduncsayisi;
             ViewBag.kasa = kasa;
 
+            var kategorisayisi = db.tblKategoriler.Count();
+            var enfazlakitapyazar = db.EnFazlaKitapYazar().FirstOrDefault();
+            var eniyiyayinevi = db.tblKitaplar.GroupBy(x => x.YAYINEVİ).OrderByDescending(y => y.Count()).Select(z => new { z.Key }).FirstOrDefault();
+
+
+            ViewBag.kategorisayisi = kategorisayisi;
+            ViewBag.enfazlakitapyazar = enfazlakitapyazar;
+            ViewBag.eniyiyayinevi = eniyiyayinevi;
+
             return View();
         }
 
