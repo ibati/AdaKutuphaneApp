@@ -133,7 +133,9 @@
     <Compile Include="Controllers\IslemlerController.cs" />
     <Compile Include="Controllers\IstatistiklerController.cs" />
     <Compile Include="Controllers\KategorilerController.cs" />
+    <Compile Include="Controllers\KayitOlController.cs" />
     <Compile Include="Controllers\KitaplarController.cs" />
+    <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Controllers\PersonellerController.cs" />
     <Compile Include="Controllers\UyelerController.cs" />
     <Compile Include="Controllers\VitrinController.cs" />
@@ -2593,6 +2595,8 @@
     <Content Include="Views\Vitrin\Index.cshtml" />
     <Content Include="Views\Istatistikler\Index.cshtml" />
     <Content Include="Views\Istatistikler\Galeri.cshtml" />
+    <Content Include="Views\Login\GirisYap.cshtml" />
+    <Content Include="Views\KayitOl\Kayit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
