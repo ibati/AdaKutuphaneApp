@@ -1,10 +1,9 @@
-﻿
+﻿@model AdaKutuphaneApp.Models.Entity.tblUyeler
 @{
     ViewBag.Title = "Kayıt Ol";
     Layout = null;
 }
 
-<!DOCTYPE html>
 
 <!DOCTYPE html>
 <html lang="tr">
@@ -31,9 +30,9 @@
             <div class="card-body">
                 <p class="login-box-msg">Kayıt Formu</p>
 
-                <form action="../../index.html" method="post">
+                <form method="post">
                     <div class="input-group mb-3">
-                        <input type="text" class="form-control" placeholder="Ad ve Soyad">
+                        <input type="text" name="AD" class="form-control" placeholder="Adınız">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-user"></span>
@@ -41,7 +40,15 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="E-Posta">
+                        <input type="text" name="SOYAD" class="form-control" placeholder="Soyadınız">
+                        <div class="input-group-append">
+                            <div class="input-group-text">
+                                <span class="fas fa-user"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="input-group mb-3">
+                        <input type="email" name="MAIL" class="form-control" placeholder="E-Posta">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -49,7 +56,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Parola">
+                        <input type="password" name="PAROLA" class="form-control" placeholder="Parola">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -82,7 +89,7 @@
                 </form>
 
 
-                <a href="Login/GirisYap" class="text-center">Hesabınız varsa giriş yapın</a>
+                <a href="/Login/GirisYap" class="text-center">Hesabınız varsa giriş yapın</a>
             </div>
             <!-- /.form-box -->
         </div><!-- /.card -->
