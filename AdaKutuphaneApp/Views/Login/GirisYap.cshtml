@@ -29,9 +29,10 @@
             <div class="card-body">
                 <p class="login-box-msg">Giriş yap</p>
 
-                <form action="../../index3.html" method="post">
+                @using (Html.BeginForm("GirisYap", "Login", FormMethod.Post))
+                {
                     <div class="input-group mb-3">
-                        <input type="email" class="form-control" placeholder="E-Posta">
+                        <input type="email" class="form-control" placeholder="E-Posta" name="MAIL">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-envelope"></span>
@@ -39,7 +40,7 @@
                         </div>
                     </div>
                     <div class="input-group mb-3">
-                        <input type="password" class="form-control" placeholder="Parola">
+                        <input type="password" class="form-control" placeholder="Parola" name="PAROLA">
                         <div class="input-group-append">
                             <div class="input-group-text">
                                 <span class="fas fa-lock"></span>
@@ -61,7 +62,7 @@
                         </div>
                         <!-- /.col -->
                     </div>
-                </form>
+                }
 
                 <p class="mb-1">
                     <a href="forgot-password.html">Parolamı unuttum</a>
