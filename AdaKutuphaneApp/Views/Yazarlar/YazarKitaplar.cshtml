@@ -1,0 +1,82 @@
+﻿@using AdaKutuphaneApp.Models.Entity;
+@model List<tblKitaplar>
+
+@{
+    ViewBag.Title = "YazarKitaplar";
+    Layout = "~/Views/Shared/Layout.cshtml";
+}
+
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>Yazarlar</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a href="#">Anasayfa</a></li>
+                    <li class="breadcrumb-item active">Yazarlar</li>
+                </ol>
+            </div>
+        </div>
+    </div><!-- /.container-fluid -->
+</section>
+
+<!-- Main content -->
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                        <h3 class="card-title"><button onclick="window.location.href='/Kitaplar/KitapEkle'" type="button" class="btn btn btn-primary"><i class="fas fa-edit"></i> Yeni Kitap Ekle</button></h3>
+                    </div>
+                    <div class="card-body">
+                        <table id="datatable1" data-page-length='25' class="table table-bordered table-hover">
+                            <thead>
+                                <tr>
+                                    <th width="5%">ID</th>
+                                    <th width="20%">Kitap Adı</th>
+                                    <th width="20%">Kategori</th>
+                                    <th width="40%">Yayınevi</th>
+                                    <th width="15%">İşlemler</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var kitap in Model)
+                                {
+                                    <tr>
+                                        <td>@kitap.ID</td>
+                                        <td>@kitap.AD</td>
+                                        <td>@kitap.tblKategoriler.AD</td>
+                                        <td>@kitap.YAYINEVİ</td>
+                                        <td>
+                                            <button type="button" onclick="window.location.href='/Kitaplar/KitapGetir/@kitap.ID'" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i> Güncelle</button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                            <tfoot>
+                                <tr>
+                                    <th>ID</th>
+                                    <th>Yazar Adı</th>
+                                    <th>Yazar Soyadı</th>
+                                    <th>Detay</th>
+                                    <th>İşlemler</th>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                    <!-- /.card-body -->
+                </div>
+                <!-- /.card -->
+            </div>
+            <!-- /.col -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.container-fluid -->
+</section>
+<!-- /.content -->

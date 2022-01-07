@@ -20,7 +20,7 @@ namespace AdaKutuphaneApp.Controllers
         [HttpGet]
         public ActionResult KitapEkle()
         {
-            List<SelectListItem> kategorilist = (from i in db.tblKategoriler.ToList()
+            List<SelectListItem> kategorilist = (from i in db.tblKategoriler.Where(x => x.DURUM == true).ToList()
                                            select new SelectListItem
                                            {
                                                Text = i.AD,

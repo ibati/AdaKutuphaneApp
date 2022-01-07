@@ -59,6 +59,7 @@
                                         <td>@uye.TELEFON</td>
 
                                         <td>
+                                            <a href="/Uyeler/UyeGetir/@uye.ID"><button type="button" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i> Kitap Geçmişi</button></a>
                                             <a href="/Uyeler/UyeGetir/@uye.ID"><button type="button" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i> Güncelle</button></a>
                                             @Html.ActionLink("Sil", "UyeSil", new { id = uye.ID }, new { @class = "btn btn-sm btn-outline-danger", onclick = "return confirm('Silmek istediğinize emin misiniz?')" })
                                         </td>

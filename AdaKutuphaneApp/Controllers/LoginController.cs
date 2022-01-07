@@ -24,11 +24,6 @@ namespace AdaKutuphaneApp.Controllers
             {
                 FormsAuthentication.SetAuthCookie(uyebilgisi.MAIL, false);  
                 Session["Mail"] = uyebilgisi.MAIL.ToString();
-                // Değiştirdik, alttakiler iptal
-                //TempData["Ad"] = uyebilgisi.AD.ToString();
-                //TempData["Soyad"] = uyebilgisi.SOYAD.ToString();
-                //TempData["Kullanici"] = uyebilgisi.KULLANICIADI.ToString();
-                //TempData["Sifre"] = uyebilgisi.PAROLA.ToString();
                 return RedirectToAction("Index", "OgrenciPaneli");
             }
             else

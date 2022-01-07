@@ -53,6 +53,7 @@
           </Key>
           <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="AD" Type="varchar" MaxLength="50" />
+          <Property Name="DURUM" Type="bit" />
         </EntityType>
         <EntityType Name="tblKitaplar">
           <Key>
@@ -281,6 +282,7 @@
           <Property Name="ID" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="AD" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="tblKitaplar" Relationship="Self.FK_tblKitaplar_tblKategoriler" FromRole="tblKategoriler" ToRole="tblKitaplar" />
+          <Property Name="DURUM" Type="Boolean" />
         </EntityType>
         <EntityType Name="tblKitaplar">
           <Key>
@@ -512,6 +514,7 @@
           <EntitySetMapping Name="tblKategoriler">
             <EntityTypeMapping TypeName="AdaKutuphaneModel.tblKategoriler">
               <MappingFragment StoreEntitySet="tblKategoriler">
+                <ScalarProperty Name="DURUM" ColumnName="DURUM" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
                 <ScalarProperty Name="AD" ColumnName="AD" />
               </MappingFragment>

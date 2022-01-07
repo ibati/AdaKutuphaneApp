@@ -38,8 +38,8 @@
                                     <th width="5%">ID</th>
                                     <th width="20%">Yazar Adı</th>
                                     <th width="20%">Yazar Soyadı</th>
-                                    <th width="40%">Detay</th>
-                                    <th width="15%">İşlemler</th>
+                                    <th width="30%">Detay</th>
+                                    <th width="25%">İşlemler</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -51,9 +51,9 @@
                                         <td>@yazar.SOYAD</td>
                                         <td>@yazar.DETAY</td>
                                         <td>
-                                            <button type="button" onclick="window.location.href='/Yazarlar/YazarGetir/@yazar.ID'" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i> Güncelle</button>
+                                            <button type="button" onclick="window.location.href='/Yazarlar/YazarKitaplar/@yazar.ID'" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i> Kitaplar</button>
+                                            <button type="button" onclick="window.location.href='/Yazarlar/YazarGetir/@yazar.ID'" class="btn btn-sm btn-outline-secondary"><i class="fas fa-edit"></i> Güncelle</button>
                                             <button type="button" onclick="window.location.href='/Yazarlar/YazarSil/@yazar.ID'" class="btn btn-sm btn-outline-danger toastrDefaultSuccess"><i class="fas fa-trash-alt"></i> Sil</button>
-                                            <button type="button" class="btn btn-sm btn-outline-danger toastrDefaultSuccess"><i class="fas fa-trash-alt"></i> Sil</button>
                                         </td>
                                     </tr>
                                 }

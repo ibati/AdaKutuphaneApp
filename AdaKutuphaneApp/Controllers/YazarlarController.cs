@@ -61,5 +61,11 @@ namespace AdaKutuphaneApp.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult YazarKitaplar(int id)
+        {
+            var yazarkitaplari = db.tblKitaplar.Where(kitap => kitap.YAZAR == id).ToList();
+            return View(yazarkitaplari);
+        }
     }
 }

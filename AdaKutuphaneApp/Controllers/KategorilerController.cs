@@ -13,7 +13,7 @@ namespace AdaKutuphaneApp.Controllers
         AdaKutuphaneEntities1 db = new AdaKutuphaneEntities1();
         public ActionResult Index()
         {
-            var kategoriler = db.tblKategoriler.ToList();
+            var kategoriler = db.tblKategoriler.Where(x=>x.DURUM == true).ToList();
             return View(kategoriler);
         }
 
@@ -34,7 +34,8 @@ namespace AdaKutuphaneApp.Controllers
         public  ActionResult KategoriSil(int id)
         {
             var kategori = db.tblKategoriler.Find(id);
-            db.tblKategoriler.Remove(kategori);
+            // db.tblKategoriler.Remove(kategori); // Silme yerine pasif etme getirdik
+            kategori.DURUM = false;
             db.SaveChanges();
             return RedirectToAction("Index");
         }
