@@ -64,5 +64,13 @@ namespace AdaKutuphaneApp.Controllers
             return RedirectToAction("Index");
 
         }
+
+        public ActionResult UyeKitapGecmis(int id)
+        {
+            var kitapgecmis = db.tblHareketler.Where(kitap => kitap.UYE == id).ToList();
+            var uye = db.tblUyeler.Where(uyeid => uyeid.ID == id).Select(uyead => uyead.AD + " " + uyead.SOYAD).FirstOrDefault();
+            ViewBag.uye = uye;
+            return View(kitapgecmis);
+        }
     }
 }

@@ -2693,6 +2693,7 @@
     <Content Include="Views\OgrenciPaneli\Index.cshtml" />
     <Content Include="Views\Mesajlar\Index.cshtml" />
     <Content Include="Views\Yazarlar\YazarKitaplar.cshtml" />
+    <Content Include="Views\Uyeler\UyeKitapGecmis.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

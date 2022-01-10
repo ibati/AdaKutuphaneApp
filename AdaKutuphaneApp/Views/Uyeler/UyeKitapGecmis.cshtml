@@ -1,8 +1,7 @@
-﻿@using AdaKutuphaneApp.Models.Entity;
-@model List<tblKitaplar>
-
+﻿@using AdaKutuphaneApp.Models.Entity
+@model List<tblHareketler>
 @{
-    ViewBag.Title = "Yazarın Kitapları";
+    ViewBag.Title = "Üye Kitap Geçmişi";
     Layout = "~/Views/Shared/Layout.cshtml";
 }
 
@@ -31,40 +30,36 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <h3 class="card-title">@ViewBag.yazar adlı yazarın kitapları</h3>
+                        <h3 class="card-title"><b>@ViewBag.uye</b> adlı üyenin kitap geçmişi</h3>
                     </div>
                     <div class="card-body">
-                        <table id="datatable1" data-page-length='25' class="table table-bordered table-hover">
+                        <table id="datatable1" class="table table-bordered table-hover">
                             <thead>
                                 <tr>
-                                    <th width="5%">ID</th>
-                                    <th width="20%">Kitap Adı</th>
-                                    <th width="20%">Kategori</th>
-                                    <th width="40%">Yayınevi</th>
-                                    <th width="15%">İşlemler</th>
+                                    <th width="25%">Kitap Adı</th>
+                                    <th width="25%">Personel</th>
+                                    <th width="25%">Alış Tarihi</th>
+                                    <th width="25%">İade Tarihi</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach (var kitap in Model)
                                 {
                                     <tr>
-                                        <td>@kitap.ID</td>
-                                        <td>@kitap.AD</td>
-                                        <td>@kitap.tblKategoriler.AD</td>
-                                        <td>@kitap.YAYINEVİ</td>
-                                        <td>
-                                            <button type="button" onclick="window.location.href='/Kitaplar/KitapGetir/@kitap.ID'" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i> Güncelle</button>
-                                        </td>
+                                        <td>@kitap.tblKitaplar.AD</td>
+                                        <td>@kitap.tblPersoneller.AD</td>
+                                        <td>@Convert.ToDateTime(kitap.ALISTARIH).ToString("dd/MM/yyyy")</td>
+                                        <td>@Convert.ToDateTime(kitap.IADETARIH).ToString("dd/MM/yyyy")</td>
+
                                     </tr>
                                 }
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>ID</th>
-                                    <th>Yazar Adı</th>
-                                    <th>Yazar Soyadı</th>
-                                    <th>Detay</th>
-                                    <th>İşlemler</th>
+                                    <th width="25%">Kitap Adı</th>
+                                    <th width="25%">Personel</th>
+                                    <th width="25%">Alış Tarihi</th>
+                                    <th width="25%">İade Tarihi</th>
                                 </tr>
                             </tfoot>
                         </table>

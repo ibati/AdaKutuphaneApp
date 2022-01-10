@@ -330,6 +330,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="~/AdminTheme/plugins/jquery-validation/additional-methods.min.js"></script>
     <!-- Select2 -->
     <script src="~/AdminTheme/plugins/select2/js/select2.full.min.js"></script>
+    @RenderSection("select2script", false)
     <!-- ChartJS -->
     <script src="~/AdminTheme/plugins/chart.js/Chart.min.js"></script>
     <!-- AdminLTE App -->
@@ -355,6 +356,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="~/AdminTheme/plugins/sweetalert2/sweetalert2.min.js"></script>
     <!-- Toastr -->
     <script src="~/AdminTheme/plugins/toastr/toastr.min.js"></script>
+    @RenderSection("toasterscript", false)
+
 
     <script>
         $(function () {

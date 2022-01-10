@@ -37,13 +37,13 @@
                             <thead>
                                 <tr>
                                     <th width="5%">ID</th>
-                                    <th width="15%">Üye Adı</th>
-                                    <th width="15%">Üye Soyadı</th>
+                                    <th width="10%">Üye Adı</th>
+                                    <th width="10%">Üye Soyadı</th>
                                     <th width="15%">Mail Adresi</th>
                                     <th width="10%">Kullanıcı Adı</th>
                                     <th width="10%">Parola</th>
                                     <th width="10%">Telefon</th>
-                                    <th width="15%">İşlemler</th>
+                                    <th width="25%">İşlemler</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -59,8 +59,8 @@
                                         <td>@uye.TELEFON</td>
 
                                         <td>
-                                            <a href="/Uyeler/UyeGetir/@uye.ID"><button type="button" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i> Kitap Geçmişi</button></a>
-                                            <a href="/Uyeler/UyeGetir/@uye.ID"><button type="button" class="btn btn-sm btn-outline-primary"><i class="fas fa-edit"></i> Güncelle</button></a>
+                                            <a href="/Uyeler/UyeKitapGecmis/@uye.ID"><button type="button" class="btn btn-sm btn-outline-primary"><i class="fas fa-list"></i> Kitap Geçmişi</button></a>
+                                            <a href="/Uyeler/UyeGetir/@uye.ID"><button type="button" class="btn btn-sm btn-outline-secondary"><i class="fas fa-edit"></i> Güncelle</button></a>
                                             @Html.ActionLink("Sil", "UyeSil", new { id = uye.ID }, new { @class = "btn btn-sm btn-outline-danger", onclick = "return confirm('Silmek istediğinize emin misiniz?')" })
                                         </td>
                                     </tr>
@@ -68,14 +68,14 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th width="5%">ID</th>
-                                    <th width="15%">Üye Adı</th>
-                                    <th width="15%">Üye Soyadı</th>
-                                    <th width="15%">Mail Adresi</th>
-                                    <th width="10%">Kullanıcı Adı</th>
-                                    <th width="10%">Parola</th>
-                                    <th width="10%">Telefon</th>
-                                    <th width="15%">İşlemler</th>
+                                    <th>ID</th>
+                                    <th>Üye Adı</th>
+                                    <th>Üye Soyadı</th>
+                                    <th>Mail Adresi</th>
+                                    <th>Kullanıcı Adı</th>
+                                    <th>Parola</th>
+                                    <th>Telefon</th>
+                                    <th>İşlemler</th>
                                 </tr>
                             </tfoot>
                         </table>

@@ -65,6 +65,8 @@ namespace AdaKutuphaneApp.Controllers
         public ActionResult YazarKitaplar(int id)
         {
             var yazarkitaplari = db.tblKitaplar.Where(kitap => kitap.YAZAR == id).ToList();
+            var yazar = db.tblYazarlar.Where(yazarid => yazarid.ID == id).Select(yazaradi => yazaradi.AD + " " + yazaradi.SOYAD).FirstOrDefault();
+            ViewBag.yazar = yazar;
             return View(yazarkitaplari);
         }
     }
